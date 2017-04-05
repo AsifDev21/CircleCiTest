@@ -4,6 +4,11 @@ machine:
   timezone:
     America/Los_Angeles # Set the timezone
 
+   test:
+     override:
+       - adb install path/to/build.apk
+
+
 #  # Version of ruby to use
 #  ruby:
 #    version:
