@@ -22,8 +22,13 @@ dependencies:
         - echo y | ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
 
 test:
+
+pre:
+    - emulator -avd circleci-android24 -no-window:
+        background: true
+        parallel: true
+    - circle-android wait-for-boot
+
     override:
         - (./gradlew assemble):
-            timeout: 720
-        - cp -r project-name/build/outputs $CIRCLE_ARTIFACTS
-        - cp -r my-project/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+            timeout: 360
