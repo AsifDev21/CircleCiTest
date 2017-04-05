@@ -23,12 +23,6 @@ dependencies:
 
 test:
 
-pre:
-    - emulator -avd circleci-android24 -no-window:
-        background: true
-        parallel: true
-    - circle-android wait-for-boot
-
     override:
         - (./gradlew assemble):
             timeout: 360
