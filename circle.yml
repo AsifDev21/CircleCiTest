@@ -11,10 +11,17 @@ machine:
         ANDROID_HOME: /usr/local/android-sdk-linux
 
 dependencies:
+
+pre:
+    - chmod +x gradlew
     override:
-        - exho y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.2,android-25
+
+       - echo y | android update sdk --no-ui --all --filter "platform-tools, tools"
+        - echo y | android update sdk --no-ui --all --filter "android-25, build-tools-25.0.2"
+        - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
+        - echo y | android update sdk --no-ui --all --filter "extra-android-support"
 #        - yes | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.2,android-25
-        - chmod +x gradlew
+
         - echo y | ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
 
 test:
