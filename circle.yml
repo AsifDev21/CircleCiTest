@@ -12,9 +12,10 @@ machine:
 
 dependencies:
     override:
-        - yes | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.2,android-25
+        - exho y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.2,android-25
+#        - yes | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.2,android-25
         - chmod +x gradlew
-        - yes | ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
+        - echo y | ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
 
 test:
     override:
