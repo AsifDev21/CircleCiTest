@@ -26,3 +26,4 @@ test:
         - (./gradlew assemble):
             timeout: 720
         - cp -r project-name/build/outputs $CIRCLE_ARTIFACTS
+        - cp -r my-project/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
