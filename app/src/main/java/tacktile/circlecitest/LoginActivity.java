@@ -334,6 +334,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                mPasswordView.setText("");
+                mEmailView.setText("");
                 Toast.makeText(LoginActivity.this, "login success", Toast.LENGTH_SHORT).show();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
